@@ -1,0 +1,15 @@
+stages:
+  - build
+  - test
+
+build-code-job:
+  stage: build
+  image: maven:3.8-openjdk-11
+  script:
+    - mvn package -DskipTests=true
+
+test-code-job:
+  stage: test
+  image: maven:3.8-openjdk-11
+  script:
+    - mvn test
